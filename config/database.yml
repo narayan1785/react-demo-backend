@@ -1,0 +1,26 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8 
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  username: root
+  password: root
+
+development:
+  <<: *default
+  database: rdemo_development
+
+  # Schema search path. The server defaults to $user,public
+  
+test: &test
+  <<: *default
+  database: rdemo_test
+
+#
+production:
+  <<: *default
+  database: rdemo_production
+
+cucumber:
+  <<: *test
